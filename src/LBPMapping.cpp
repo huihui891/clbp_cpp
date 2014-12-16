@@ -21,13 +21,12 @@ int countBits(int number) {
 }
 
 /* Generates the LBP mappings for Uniform and Rotation-invariant (RIU2)*/
-uvec LBPMapping::GetMapping_RIU2(int NumberOfPoints) {
+MappingTable LBPMapping::GetMapping_RIU2(int NumberOfPoints) {
     int table_size = 1 << NumberOfPoints; // 2^NumberOfPoints
 
     uvec result(table_size);
 
-    int newMax = NumberOfPoints + 2;
-
+    //Creates a mask to ensure that mappings don't exceed "NumberOfPoints" bits
     int mask = 0;
     for (int i=0; i < NumberOfPoints; i++) {
         mask  = mask | 1 << i;
@@ -46,5 +45,9 @@ uvec LBPMapping::GetMapping_RIU2(int NumberOfPoints) {
 
     }
 
-    return std::move(result);
+    MappingTable m;
+    m.numBins = NumberOfPoints + 2;
+    m.numSamples = NumberOfPoints;
+    m.table = std::move(result);
+    return std::move(m);
 }

@@ -40,9 +40,9 @@ OBJDIR_RELEASE = obj/Release
 DEP_RELEASE = 
 OUT_RELEASE = bin/Release/clbp
 
-OBJ_DEBUG = $(OBJDIR_DEBUG)/src/LBPMapping.o $(OBJDIR_DEBUG)/src/util.o $(OBJDIR_DEBUG)/test/RunAll.o $(OBJDIR_DEBUG)/test/testMapping.o
+OBJ_DEBUG = $(OBJDIR_DEBUG)/src/CLBP.o $(OBJDIR_DEBUG)/src/LBPMapping.o $(OBJDIR_DEBUG)/src/util.o $(OBJDIR_DEBUG)/test/RunAll.o $(OBJDIR_DEBUG)/test/testCLBP.o $(OBJDIR_DEBUG)/test/testMapping.o
 
-OBJ_RELEASE = $(OBJDIR_RELEASE)/src/LBPMapping.o $(OBJDIR_RELEASE)/src/util.o $(OBJDIR_RELEASE)/test/RunAll.o $(OBJDIR_RELEASE)/test/testMapping.o
+OBJ_RELEASE = $(OBJDIR_RELEASE)/src/CLBP.o $(OBJDIR_RELEASE)/src/LBPMapping.o $(OBJDIR_RELEASE)/src/util.o $(OBJDIR_RELEASE)/test/RunAll.o $(OBJDIR_RELEASE)/test/testCLBP.o $(OBJDIR_RELEASE)/test/testMapping.o
 
 all: debug release
 
@@ -60,6 +60,9 @@ debug: before_debug out_debug after_debug
 out_debug: before_debug $(OBJ_DEBUG) $(DEP_DEBUG)
 	$(LD) $(LIBDIR_DEBUG) -o $(OUT_DEBUG) $(OBJ_DEBUG)  $(LDFLAGS_DEBUG) $(LIB_DEBUG)
 
+$(OBJDIR_DEBUG)/src/CLBP.o: src/CLBP.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/CLBP.cpp -o $(OBJDIR_DEBUG)/src/CLBP.o
+
 $(OBJDIR_DEBUG)/src/LBPMapping.o: src/LBPMapping.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/LBPMapping.cpp -o $(OBJDIR_DEBUG)/src/LBPMapping.o
 
@@ -68,6 +71,9 @@ $(OBJDIR_DEBUG)/src/util.o: src/util.cpp
 
 $(OBJDIR_DEBUG)/test/RunAll.o: test/RunAll.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c test/RunAll.cpp -o $(OBJDIR_DEBUG)/test/RunAll.o
+
+$(OBJDIR_DEBUG)/test/testCLBP.o: test/testCLBP.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c test/testCLBP.cpp -o $(OBJDIR_DEBUG)/test/testCLBP.o
 
 $(OBJDIR_DEBUG)/test/testMapping.o: test/testMapping.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c test/testMapping.cpp -o $(OBJDIR_DEBUG)/test/testMapping.o
@@ -90,6 +96,9 @@ release: before_release out_release after_release
 out_release: before_release $(OBJ_RELEASE) $(DEP_RELEASE)
 	$(LD) $(LIBDIR_RELEASE) -o $(OUT_RELEASE) $(OBJ_RELEASE)  $(LDFLAGS_RELEASE) $(LIB_RELEASE)
 
+$(OBJDIR_RELEASE)/src/CLBP.o: src/CLBP.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/CLBP.cpp -o $(OBJDIR_RELEASE)/src/CLBP.o
+
 $(OBJDIR_RELEASE)/src/LBPMapping.o: src/LBPMapping.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/LBPMapping.cpp -o $(OBJDIR_RELEASE)/src/LBPMapping.o
 
@@ -98,6 +107,9 @@ $(OBJDIR_RELEASE)/src/util.o: src/util.cpp
 
 $(OBJDIR_RELEASE)/test/RunAll.o: test/RunAll.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c test/RunAll.cpp -o $(OBJDIR_RELEASE)/test/RunAll.o
+
+$(OBJDIR_RELEASE)/test/testCLBP.o: test/testCLBP.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c test/testCLBP.cpp -o $(OBJDIR_RELEASE)/test/testCLBP.o
 
 $(OBJDIR_RELEASE)/test/testMapping.o: test/testMapping.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c test/testMapping.cpp -o $(OBJDIR_RELEASE)/test/testMapping.o

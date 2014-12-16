@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1418588543 source:/home/gustavo/dev/ml/c++/clbp/src/LBPMapping.cpp
+1418597738 source:/home/gustavo/dev/ml/c++/clbp/src/LBPMapping.cpp
 	"LBPMapping.h"
 
-1418584983 /home/gustavo/dev/ml/c++/clbp/include/LBPMapping.h
+1418597770 /home/gustavo/dev/ml/c++/clbp/include/LBPMapping.h
 	<armadillo>
 
-1418590370 source:/home/gustavo/dev/ml/c++/clbp/test/testMapping.cpp
+1418687576 source:/home/gustavo/dev/ml/c++/clbp/test/testMapping.cpp
 	"UnitTest++.h"
 	"LBPMapping.h"
 	<armadillo>
@@ -98,9 +98,23 @@
 1225388316 /home/gustavo/dev/ml/c++/UnitTest/src/Win32/TimeHelpers.h
 	"../Config.h"
 
-1418590174 source:/home/gustavo/dev/ml/c++/clbp/src/util.cpp
+1418688007 source:/home/gustavo/dev/ml/c++/clbp/src/util.cpp
 	"util.h"
 
-1418585985 /home/gustavo/dev/ml/c++/clbp/include/util.h
+1418687983 /home/gustavo/dev/ml/c++/clbp/include/util.h
 	<armadillo>
+
+1418687013 source:/home/gustavo/dev/ml/c++/clbp/src/CLBP.cpp
+	"CLBP.h"
+	<armadillo>
+
+1418687020 /home/gustavo/dev/ml/c++/clbp/include/CLBP.h
+	<armadillo>
+	"LBPMapping.h"
+
+1418687644 source:/home/gustavo/dev/ml/c++/clbp/test/testCLBP.cpp
+	"UnitTest++.h"
+	"CLBP.h"
+	<armadillo>
+	"util.h"
 

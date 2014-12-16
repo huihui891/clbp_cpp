@@ -44,11 +44,14 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/CLBP.h" />
 		<Unit filename="include/LBPMapping.h" />
 		<Unit filename="include/util.h" />
+		<Unit filename="src/CLBP.cpp" />
 		<Unit filename="src/LBPMapping.cpp" />
 		<Unit filename="src/util.cpp" />
 		<Unit filename="test/RunAll.cpp" />
+		<Unit filename="test/testCLBP.cpp" />
 		<Unit filename="test/testMapping.cpp" />
 		<Extensions>
 			<code_completion />
