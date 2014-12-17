@@ -1,4 +1,5 @@
 #include "CLBP.h"
+#include <iostream>
 #include <armadillo>
 
 using namespace arma;
@@ -13,6 +14,14 @@ CLBP::~CLBP()
     //dtor
 }
 
+template<class Matrix>
+void print_matrix(Matrix matrix) {
+    matrix.print(std::cout);
+}
+
+template void print_matrix<mat>(mat matrix);
+template void print_matrix<umat>(umat matrix);
+
 mat GetPointsWithDistance(const mat& img, double y, double x, double dy, double dx) {
     double fy = floor(y);
     double cy = ceil(y);
@@ -24,7 +33,7 @@ mat GetPointsWithDistance(const mat& img, double y, double x, double dy, double 
 
     mat N;
 
-    if (abs(x - rx) < 1e-6 && abs(y - ry) < 1e-6) {
+    if (std::abs(x - rx) < 1e-6 && std::abs(y - ry) < 1e-6) {
         N = img.submat(ry, rx, ry + dy, rx + dx);
     }
     else { //Need interpolation
@@ -85,6 +94,7 @@ CLBP_Codes CLBP::Run(mat image, double radius, int neighbors, MappingTable mappi
         mat N = GetPointsWithDistance(image, y, x, dy, dx);
 
         D.slice(i) = (N >= d_C);
+
         Diff.slice(i) = abs(N - d_C);
         MeanDiff(i) = mean(mean(Diff.slice(i)));
     }
@@ -102,6 +112,7 @@ CLBP_Codes CLBP::Run(mat image, double radius, int neighbors, MappingTable mappi
         int v = 1 << i; // 2^i
 
         result.CLBP_S += v * D.slice(i);
+
         result.CLBP_M += v * (Diff.slice(i) >= DiffThreshold);
     }
 

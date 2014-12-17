@@ -98,14 +98,15 @@
 1225388316 /home/gustavo/dev/ml/c++/UnitTest/src/Win32/TimeHelpers.h
 	"../Config.h"
 
-1418688007 source:/home/gustavo/dev/ml/c++/clbp/src/util.cpp
+1418688158 source:/home/gustavo/dev/ml/c++/clbp/src/util.cpp
 	"util.h"
 
 1418687983 /home/gustavo/dev/ml/c++/clbp/include/util.h
 	<armadillo>
 
-1418687013 source:/home/gustavo/dev/ml/c++/clbp/src/CLBP.cpp
+1418776892 source:/home/gustavo/dev/ml/c++/clbp/src/CLBP.cpp
 	"CLBP.h"
+	<iostream>
 	<armadillo>
 
 1418687020 /home/gustavo/dev/ml/c++/clbp/include/CLBP.h
